@@ -1,0 +1,22 @@
+.banner {
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.main-logo {
+  height: 60px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.coolpay-btn {
+  font-size: 20px;
+}
