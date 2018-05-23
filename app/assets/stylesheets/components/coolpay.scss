@@ -50,3 +50,39 @@
 .button {
   width: 150px;
 }
+
+.button1 {
+  width: 100px;
+}
+
+.button2 {
+  width: 50%;
+}
+
+.list_main .coolpay {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.coolpay_name {
+  margin-bottom: 0px;
+  width: 50%;
+}
+.coolpay_currency {
+  margin-bottom: 0px;
+  width: 50%;
+}
+.coolpay_amount {
+  margin-bottom: 0px;
+  width: 50%;
+}
+
+.pay_main .coolpay {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+

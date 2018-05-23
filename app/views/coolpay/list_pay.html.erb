@@ -1,7 +1,7 @@
 <%= image_tag 'logo2.png', class: 'main-logo' %>
 <div class="container">
   <div class="row">
-    <div class="main col-xs-6 col-xs-offset-3" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1495837174058-628aafc7d610?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=25a869d0508052fc6ee345447cb090c1&auto=format&fit=crop&w=2250&q=80');">
+    <div class="main pay_main col-xs-6 col-xs-offset-3" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1495837174058-628aafc7d610?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=25a869d0508052fc6ee345447cb090c1&auto=format&fit=crop&w=2250&q=80');">
         <%= link_to "Back", login_path, class: 'back-btn btn btn-warning' %>
       <% if @payments.empty? %>
       <h1>You've made no payments.</h1>
@@ -20,7 +20,7 @@
       <%= f.input :name, collection: @recipients.map{|x|x["name"]}, required: false, label: false, prompt: "Friends" %>
       <%= f.input :currency, collection: ["GBP", "EUR", "USD"], required: false, label: false, prompt: "Currency" %>
       <%= f.input :amount, placeholder: "Amount i.e. 10", required: false, label: false %>
-      <%= f.button :submit, "Pay", class: "btn btn-success" %>
+      <%= f.button :submit, "Pay", class: "button2 btn btn-success" %>
       <% end %>
     </div>
   </div>
