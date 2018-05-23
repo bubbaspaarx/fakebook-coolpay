@@ -4,7 +4,7 @@ class CoolpayController < ApplicationController
   before_action :authenticate, only: [:headers, :list, :add, :list_pay, :make_pay, :search]
 
   def login
-    @user = ENV["coolpay_user"]
+    get_user
   end
 
   def list
@@ -102,6 +102,9 @@ class CoolpayController < ApplicationController
     response = RestClient.post base_url + 'payments', values, headers
   end
 
+  def get_user
+    @user = ENV["coolpay_user"]
+  end
 
   def headers
     headers = {
