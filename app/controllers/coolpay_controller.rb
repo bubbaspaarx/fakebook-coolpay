@@ -1,7 +1,7 @@
 require 'rest-client'
 
 class CoolpayController < ApplicationController
-  before_action :authenticate, only: [:headers, :list, :add, :list_pay, :make_pay]
+  before_action :authenticate, only: [:headers, :list, :add, :list_pay, :make_pay, :search]
 
   def login
     @user = ENV["coolpay_user"]
@@ -11,11 +11,15 @@ class CoolpayController < ApplicationController
     get_rest
   end
 
+  def search
+    post_search
+  end
+
   def add
     @friend_name = params[:coolpay][:name]
     values = {
       "recipient": {
-        "name": "#{@friend_name}"
+        "name": "#{@friend_name.capitalize}"
       }
     }.to_json
     post_rest(values)
@@ -73,6 +77,15 @@ class CoolpayController < ApplicationController
     @recipients = JSON[response]["recipients"]
   end
 
+  def post_search
+    if params[:coolpay]["name"] != ""
+      @name = params[:coolpay]["name"]
+      response = RestClient.get base_url + "recipients?name=#{@name.capitalize}", headers
+      @recipients = JSON[response]["recipients"]
+    else
+      return @recipients = []
+    end
+  end
 
   def post_rest(values)
     response = RestClient.post base_url + 'recipients', values, headers

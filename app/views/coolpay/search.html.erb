@@ -1,35 +1,24 @@
-<%= image_tag 'logo2.png', class: 'main-logo' %>
+ <%= image_tag 'logo2.png', class: 'main-logo' %>
 <div class="container">
   <div class="row">
     <div class="main col-xs-6 col-xs-offset-3" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1495837174058-628aafc7d610?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=25a869d0508052fc6ee345447cb090c1&auto=format&fit=crop&w=2250&q=80');">
-      <%= link_to "Back", login_path, class: 'back-btn btn btn-warning' %>
+      <%= link_to "Back", list_path, class: 'back-btn btn btn-warning' %>
       <% if @recipients.empty? %>
-      <h1>You have no friends yet!</h1>
+      <h1>Can't find that friend 🤷🏻‍♂️</h1>
       <% else %>
-      <h1>Your friends!</h1>
+      <h1>Your friend</h1>
       <p>Showing <span id="friend_num"></span> of <%= @recipients.length %></p>
       <ol>
-        <% @recipients.reverse[0..4].each do |recipient| %>
+        <% @recipients.each do |recipient| %>
         <li><%= recipient["name"] %></li>
         <% end %>
       </ol>
-      <p>Search for a friend</p>
+      <p>Search for another friend</p>
       <%= simple_form_for :coolpay, url: search_path do |f| %>
       <%= f.input :name, required: false, label: false, placeholder: "Friends Name" %>
       <%= f.button :submit, "Search", class: "btn btn-success" %>
       <% end %>
       <% end %>
-      <p class="add_friend">Add a friend</p>
-      <%= simple_form_for :coolpay, url: add_path do |f| %>
-      <%= f.input :name, required: false, label: false, placeholder: "Friends Name" %>
-      <%= f.button :submit, "Add", class: "btn btn-success" %>
-      <% end %>
     </div>
   </div>
 </div>
-
-<script>
-  const lines = document.querySelectorAll("li")
-  const span = document.getElementById("friend_num")
-  span.innerText = lines.length
-</script>
