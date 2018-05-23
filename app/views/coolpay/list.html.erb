@@ -12,10 +12,15 @@
         <li><%= recipient["name"] %></li>
         <% end %>
       </ol>
+      <h5>Search for a friend</h5>
+      <%= simple_form_for :coolpay, url: list_post_path do |f| %>
+      <%= f.input :name, required: false, label: false, placeholder: "Friends Name" %>
+      <%= f.button :submit, "Search", class: "btn btn-success" %>
       <% end %>
-      <h2>Add a friend</h2>
+      <% end %>
+      <h5>Add a friend</h5>
       <%= simple_form_for :coolpay, url: add_path do |f| %>
-      <%= f.input "Friends Name" %>
+      <%= f.input :name, required: false, label: false, placeholder: "Friends Name" %>
       <%= f.button :submit, "Add", class: "btn btn-success" %>
       <% end %>
     </div>
