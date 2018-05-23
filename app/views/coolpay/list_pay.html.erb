@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="main col-xs-6 col-xs-offset-3" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1495837174058-628aafc7d610?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=25a869d0508052fc6ee345447cb090c1&auto=format&fit=crop&w=2250&q=80');">
-        <%= link_to "Back", root_path, class: 'back-btn btn btn-warning' %>
+        <%= link_to "Back", login_path, class: 'back-btn btn btn-warning' %>
       <% if @payments.empty? %>
       <h1>You've made no payments.</h1>
       <% else %>
