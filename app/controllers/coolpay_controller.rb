@@ -4,6 +4,7 @@ class CoolpayController < ApplicationController
   before_action :authenticate, only: [:headers, :list, :add, :list_pay, :make_pay]
 
   def login
+    @user = ENV["coolpay_user"]
   end
 
   def list
